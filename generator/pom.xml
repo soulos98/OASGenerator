@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.soulos</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>generator</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>generator</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.7.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/petstore.yaml</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <ignoreFileOverride>${project.basedir}/.openapi-generator-ignore</ignoreFileOverride>
+                            <output>../generated-sources</output>
+                            <configOptions>
+                                <output>../generated-sources</output>
+                                <!-- add the parent pom -->
+                                <parentGroupId>org.soulos</parentGroupId>
+                                <parentArtifactId>parent</parentArtifactId>
+                                <parentVersion>0.0.1-SNAPSHOT</parentVersion>
+                                <cleanupOutput>true</cleanupOutput>
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <inputSpec>${project.basedir}/petstore.yaml</inputSpec>
+                                <addCompileSourceRoot>false</addCompileSourceRoot>
+                                <!-- only generate the interfaces (no impl) -->
+                                <requestMappingMode>api_interface</requestMappingMode>
+                                <interfaceOnly>false</interfaceOnly>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                                <groupId>org.soulos</groupId>
+                                <artifactId>oas-spring</artifactId>
+                                <artifactVersion>${project.version}</artifactVersion>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Copy generated sources to the sibling directory -->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-resources-plugin</artifactId>-->
+<!--                <version>3.2.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>copy-generated-sources</id>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-resources</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <outputDirectory>${project.basedir}/../oas-spring</outputDirectory>-->
+<!--                            <resources>-->
+<!--                                <resource>-->
+<!--                                    <directory>${project.build.directory}/generated-sources</directory>-->
+<!--                                    <includes>-->
+<!--                                        <include>**/*</include>-->
+<!--                                    </includes>-->
+<!--                                </resource>-->
+<!--                            </resources>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
