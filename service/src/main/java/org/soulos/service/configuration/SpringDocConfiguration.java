@@ -1,5 +1,6 @@
-package org.openapitools.configuration;
+package org.soulos.service.configuration;
 
+import io.swagger.v3.oas.models.Paths;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -43,6 +44,6 @@ public class SpringDocConfiguration {
                                         .name("api_key")
                                 )
                 )
-        ;
+                ;
     }
 }

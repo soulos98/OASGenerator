@@ -1,10 +1,10 @@
-package org.openapitools;
+package org.soulos.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OpenApiGeneratorApplicationTests {
+class ServiceApplicationTests {
 
     @Test
     void contextLoads() {

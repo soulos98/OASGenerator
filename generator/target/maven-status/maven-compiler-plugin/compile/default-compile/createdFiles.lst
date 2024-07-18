@@ -2,13 +2,9 @@ org/openapitools/model/Pet$StatusEnum.class
 org/openapitools/model/Category.class
 org/openapitools/api/StoreApi.class
 org/openapitools/api/ApiUtil.class
-org/openapitools/configuration/HomeController.class
 org/openapitools/model/User.class
-org/openapitools/RFC3339DateFormat.class
-org/openapitools/configuration/SpringDocConfiguration.class
 org/openapitools/model/Order$StatusEnum.class
 org/openapitools/api/PetApi.class
-org/openapitools/OpenApiGeneratorApplication.class
 org/openapitools/model/ModelApiResponse.class
 org/openapitools/model/Order.class
 org/openapitools/model/Tag.class
